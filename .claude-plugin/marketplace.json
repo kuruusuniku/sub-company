@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "sub-company",
-      "source": ".",
+      "source": "./",
       "description": "専属子会社を設立してClaudeを活用。秘書が各部署（PM・開発・マーケ・営業・経営企画・品質管理）へ命令を出して仕事を自律実行。サブエージェント並列実行・CEO召喚・GitHub Issues連携に対応。",
       "version": "0.7.0",
       "author": {
