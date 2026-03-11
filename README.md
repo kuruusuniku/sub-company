@@ -12,7 +12,7 @@
 
 ```bash
 # GitHub からインストール
-claude plugin install <GitHubユーザー名>/sub-company
+claude plugin install kuruusuniku/sub-company
 
 # ローカルフォルダからインストール
 claude plugin install ./sub-company
