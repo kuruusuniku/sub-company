@@ -149,4 +149,4 @@ company/
 
 ## ライセンス
 
-MIT License
+Apache License 2.0
