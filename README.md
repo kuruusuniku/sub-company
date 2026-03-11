@@ -10,13 +10,19 @@
 
 ## インストール
 
-```bash
-# マーケットプレースからインストール
-claude plugin install sub-company@sub-company
+### 1. マーケットプレースを追加
 
-# ローカルフォルダからインストール
-claude plugin install ./sub-company
+```bash
+/plugin marketplace add kuruusuniku/sub-company
 ```
+
+### 2. プラグインをインストール
+
+```bash
+/plugin install sub-company@sub-company
+```
+
+CLI でも デスクトップアプリでも同じコマンドが使えます。
 
 ---
 
