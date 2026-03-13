@@ -26,6 +26,7 @@ argument-hint: [weekly | monthly | pm | dev | marketing | sales | all]
 4. `company/marketing/strategy.md` - マーケ施策状況
 5. `company/sales/` 以下のファイル - 営業案件
 6. `company/ceo/decisions.md` - 意思決定ログ
+7. `company/*/playbooks/*.md` - 各部署のプレイブック（ナレッジ蓄積状況）
 
 ## レポートフォーマット
 
@@ -61,6 +62,15 @@ argument-hint: [weekly | monthly | pm | dev | marketing | sales | all]
 1. 優先タスク1
 2. 優先タスク2
 3. 優先タスク3
+
+## 📚 ナレッジ蓄積
+| 部署 | プレイブック数 | 最終更新 | 主なトピック |
+|------|-------------|---------|------------|
+| PM部 | N件 | YYYY-MM-DD | [トピック一覧] |
+| 開発部 | N件 | YYYY-MM-DD | [トピック一覧] |
+| マーケ部 | N件 | YYYY-MM-DD | [トピック一覧] |
+| 営業部 | N件 | YYYY-MM-DD | [トピック一覧] |
+| 経営企画部 | N件 | YYYY-MM-DD | [トピック一覧] |
 ```
 
 ## 実行手順

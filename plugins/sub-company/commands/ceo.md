@@ -90,12 +90,14 @@ echo 'claude --resume --print "company/ceo/plans/night-plan-YYYY-MM-DD.md を読
 ## 実行手順
 
 1. `company/secretary/config.md` を読み込む
-2. 計画に従い、各部署にサブエージェント（Agent ツール）で命令を出す
-3. 各部署の成果物を確認・レビューする
-4. 品質に問題があれば修正指示を出して再実行する（最大2回）
-5. 全タスク完了後、CEO レポートを作成する：
+2. `company/ceo/playbooks/*.md` を確認し、関連する過去の知見を把握する
+3. 計画に従い、各部署にサブエージェント（Agent ツール）で命令を出す
+4. 各部署の成果物を確認・レビューする
+5. 品質に問題があれば修正指示を出して再実行する（最大2回）
+6. 全タスク完了後、CEO レポートを作成する：
    `company/ceo/reports/night-report-YYYY-MM-DD.md`
-6. GitHub 連携済みの場合は Issue を作成・完了処理する
+7. 再利用可能な戦略知見があれば `company/ceo/playbooks/` に保存・更新する
+8. GitHub 連携済みの場合は Issue を作成・完了処理する
 
 ## CEO レポートの構成
 - 実行したタスクの一覧と結果

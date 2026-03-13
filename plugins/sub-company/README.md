@@ -100,6 +100,18 @@ SNS投稿文を書いて
 
 ---
 
+## プレイブック（ナレッジ学習）
+
+各部署は仕事を通じて知見を蓄積し、次回以降に活かします。プレイブックは部署ごとの `playbooks/` フォルダに自動で保存・更新されます。
+
+- タスク実行前に過去のプレイブックを自動参照
+- タスク完了後に再利用可能な知見を自動で記録
+- 1部署あたり最大10件（超えたら自動統合）
+
+使えば使うほど各部署が賢くなり、仕事の質が向上します。
+
+---
+
 ## フォルダ構成
 
 ```
@@ -111,24 +123,31 @@ company/
 │   └── todos.md          # 全社TODO
 ├── orders/               # 秘書が各部署へ出した命令ログ
 ├── pm/                   # PM部
-│   └── orders/           # PM部への命令書・結果
+│   ├── orders/           # PM部への命令書・結果
+│   └── playbooks/        # PM部のナレッジ
 ├── dev/                  # 開発部
-│   └── orders/
+│   ├── orders/
+│   └── playbooks/
 ├── marketing/            # マーケ部
-│   └── orders/
+│   ├── orders/
+│   └── playbooks/
 ├── sales/                # 営業部
 │   ├── proposals/
-│   └── orders/
+│   ├── orders/
+│   └── playbooks/
 ├── planning/             # 経営企画部
-│   └── orders/
+│   ├── orders/
+│   └── playbooks/
 ├── qa/                   # 品質管理部
 │   ├── reviews/
-│   └── orders/
+│   ├── orders/
+│   └── playbooks/
 ├── ceo/                  # CEO（召喚時のみ使用）
 │   ├── plans/
 │   ├── reviews/
 │   ├── reports/
-│   └── orders/
+│   ├── orders/
+│   └── playbooks/
 └── reports/              # 自動生成レポート
 ```
 

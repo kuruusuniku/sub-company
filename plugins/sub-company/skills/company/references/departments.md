@@ -25,6 +25,9 @@
 
 ## 👔 CEO（経営層）
 
+### 保存先（追加）
+- `company/ceo/playbooks/` — CEO のナレッジ・プレイブック
+
 ### 役割
 - 秘書から報告を受け、どの部署が担当するか判断する
 - 複数部署にまたがる場合は優先順位を決める
@@ -77,6 +80,7 @@
 
 ### 保存先
 - `company/pm/projects.md` — プロジェクト一覧・管理
+- `company/pm/playbooks/` — PM部のナレッジ・プレイブック
 
 ---
 
@@ -122,6 +126,7 @@
 
 ### 保存先
 - `company/dev/research.md` または `company/dev/research-[テーマ].md`
+- `company/dev/playbooks/` — 開発部のナレッジ・プレイブック
 
 ---
 
@@ -168,6 +173,7 @@
 ### 保存先
 - `company/marketing/strategy.md` — 戦略ファイル
 - `company/marketing/content.md` — コンテンツカレンダー
+- `company/marketing/playbooks/` — マーケ部のナレッジ・プレイブック
 
 ---
 
@@ -221,6 +227,7 @@
 ### 保存先
 - `company/sales/proposals/YYYY-MM-DD-[クライアント名].md`
 - `company/sales/clients.md` — クライアント管理台帳
+- `company/sales/playbooks/` — 営業部のナレッジ・プレイブック
 
 ---
 
@@ -258,6 +265,7 @@
 ### 保存先
 - `company/planning/decisions.md` — 意思決定ログ
 - `company/planning/strategy.md` — 戦略ドキュメント
+- `company/planning/playbooks/` — 経営企画部のナレッジ・プレイブック
 
 ---
 
@@ -322,3 +330,4 @@
 
 ### 保存先
 - `company/qa/reviews/YYYY-MM-DD-[対象名]-review.md`
+- `company/qa/playbooks/` — 品質管理部のナレッジ・プレイブック

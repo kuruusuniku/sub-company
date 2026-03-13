@@ -132,6 +132,16 @@
 **各部署フォルダ**（`company/pm/`, `company/dev/`, `company/marketing/`, `company/sales/proposals/`, `company/planning/`）
 それぞれに部署の役割・使い方を説明したREADME.mdを生成する。
 
+**各部署の `playbooks/` フォルダ**
+以下のフォルダを作成し、`.gitkeep` を配置して空フォルダを保持する：
+- `company/pm/playbooks/`
+- `company/dev/playbooks/`
+- `company/marketing/playbooks/`
+- `company/sales/playbooks/`
+- `company/planning/playbooks/`
+- `company/qa/playbooks/`
+- `company/ceo/playbooks/`
+
 ### ステップ4：設立完了演出
 
 ```
