@@ -1,6 +1,6 @@
 ---
 description: 専属子会社の設立・ダッシュボード表示・管理
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Agent
 argument-hint: [setup | dashboard | rename [名前] | setup-github | 自由入力]
 ---
 
