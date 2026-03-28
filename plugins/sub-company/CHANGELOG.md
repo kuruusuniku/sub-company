@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## [0.9.0] - 2026-03-27
+
+### 追加
+- **macOS launchd 通知機能（さくらリマインド）**: スケジュール通知を launchd plist ベースで実装
+  - `sakura-remind-set.sh`: 指定日時に通知を設定（plist 生成 + launchctl ロード）
+  - `sakura-remind-list.sh`: 設定済み通知の一覧表示
+  - `sakura-remind-clear.sh`: 全通知 or 指定通知の削除
+  - `sakura-remind.sh`: 通知表示 + plist 自動削除（ワンショット動作）
+  - Mac 再起動・スリープ復帰後も動作する堅牢な通知
+  - 非 macOS 環境では従来の sleep 方式にフォールバック
+- ask.md にスケジュール通知提案フローを追加（キーワード検出 → 通知提案 → 設定）
+- `docs/features/mac-notifications.md` に機能説明ドキュメントを追加
+
+---
+
 ## [0.8.0] - 2026-03-13
 
 ### 追加
