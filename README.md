@@ -38,7 +38,7 @@
 
 ![個人用プラグインを選択](docs/images/1-select-personal-plugins.png)
 
-![マーケットプレイスを追加を選択](docs/images/2-select-marketplace-add.png)
+![「マーケットプレイスを追加」を選択](docs/images/2-select-marketplace-add.png)
 
 ![リポジトリ名を入力](docs/images/3-paste-repository-name.png)
 
