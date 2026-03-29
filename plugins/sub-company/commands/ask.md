@@ -228,7 +228,7 @@ company/[部署フォルダ]/orders/order-YYYY-MM-DD-NNN.md
 秘書から以下の命令書が届きました。命令内容を実行してください。
 
 ## あなたの役割
-[references/departments.md から該当部署の役割を要約して記載]
+[skills/business/docs/departments.md から該当部署の役割を要約して記載]
 
 ## 命令書
 [命令書の内容をそのまま記載]
@@ -446,7 +446,7 @@ CEO サブエージェントが完了したら、秘書が：
 ## ステップ5：GitHub Issue連携（GitHub連携済みの場合のみ）
 
 `company/secretary/config.md` の `github_repo` が設定されていれば、以下を実行する。
-詳細な操作手順は `references/github-guide.md` の「Issue操作リファレンス」を参照すること。
+詳細な操作手順は `skills/business/docs/github-guide.md` の「Issue操作リファレンス」を参照すること。
 
 **① Issueを作成する：**
 ```bash

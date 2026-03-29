@@ -44,10 +44,10 @@ version: 0.1.0
 ## 子会社設立判断
 
 `company/` フォルダが存在するか確認する：
-- 存在しない → 子会社設立が必要。`references/setup-guide.md` を参照して設立フローを開始する
+- 存在しない → 子会社設立が必要。`docs/setup-guide.md` を参照して設立フローを開始する
 - 存在する → `company/secretary/config.md` を読んで秘書名を取得し、日常運用モードで動作する
 
-詳細な設立手順は `references/setup-guide.md` を参照すること。
+詳細な設立手順は `docs/setup-guide.md` を参照すること。
 
 ## 実行アーキテクチャ
 
@@ -108,7 +108,7 @@ company/ceo/
 
 ## 各部署の動き方
 
-各部署の詳細な役割と成果物テンプレートは `references/departments.md` を参照すること。
+各部署の詳細な役割と成果物テンプレートは `docs/departments.md` を参照すること。
 
 ## ファイル命名規則
 
@@ -183,5 +183,6 @@ company/[部署]/playbooks/
 
 ## 参照ファイル
 
-- `references/setup-guide.md` — 初回セットアップの詳細手順
-- `references/departments.md` — 各部署の役割・テンプレート・成果物例
+- `docs/setup-guide.md` — 初回セットアップの詳細手順
+- `docs/departments.md` — 各部署の役割・テンプレート・成果物例
+- `docs/github-guide.md` — GitHub Issues連携の手順
