@@ -1,5 +1,5 @@
 ---
-name: business
+name: company-build
 description: >
   専属子会社としてユーザーの仕事をMarkdownベースで管理・実行するスキル。
   秘書が各部署（PM・開発・マーケ・営業・経営企画・品質管理）へ命令を出す体制。
