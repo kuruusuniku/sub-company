@@ -10,19 +10,37 @@
 
 ## インストール
 
-### 1. マーケットプレースを追加
+### 方法A：Claude Code CLI からインストール
 
-```bash
+ターミナルで `claude` を起動した状態で、**Claude Code のプロンプト内**で以下のコマンドを実行します（通常のシェルコマンドではありません）。
+
+**1. マーケットプレースを追加**
+
+```
 /plugin marketplace add kuruusuniku/sub-company
 ```
 
-### 2. プラグインをインストール
+**2. プラグインをインストール**
 
-```bash
+```
 /plugin install sub-company@sub-company
 ```
 
-CLI でも デスクトップアプリでも同じコマンドが使えます。
+> これらは `claude` の対話プロンプト内で実行するスラッシュコマンドです。通常のターミナル（bash/zsh）では動作しません。
+
+### 方法B：Claude デスクトップアプリ（Cowork）からインストール
+
+1. Claude デスクトップアプリを開く
+2. 画面左下の **「カスタマイズ」** を開く
+3. **「個人用プラグイン」** セクションの **＋（プラス）ボタン** をクリック
+4. **「マーケットプレイスを追加」** を選択
+5. `kuruusuniku/sub-company` を検索してインストール
+
+![個人用プラグインを選択](docs/images/1-select-personal-plugins.png)
+
+![「マーケットプレイスを追加」を選択](docs/images/2-select-marketplace-add.png)
+
+![リポジトリ名を入力](docs/images/3-paste-repository-name.png)
 
 ---
 
@@ -167,7 +185,7 @@ company/
 
 ## 動作要件
 
-- Claude Code（`claude` コマンド）
+- **Claude Code CLI**（`claude` コマンド）または **Claude デスクトップアプリ**（Cowork）
 - GitHub CLI（`gh`）— GitHub連携を使う場合のみ
 
 ---
