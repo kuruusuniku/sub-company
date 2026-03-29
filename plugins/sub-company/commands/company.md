@@ -22,7 +22,7 @@ argument-hint: [setup | dashboard | rename [名前] | setup-github | 自由入�
 3. 「お名前を [旧名前] から [新名前] に変更いたしました。」と報告する
 
 ### `setup-github` の処理
-詳細な手順は `skills/company/references/github-guide.md` の「セットアップ手順」を参照すること。
+詳細な手順は `skills/business/references/github-guide.md` の「セットアップ手順」を参照すること。
 
 概要フロー：
 1. `company/secretary/config.md` を読んで秘書名を取得する
