@@ -288,8 +288,11 @@
 
 ### ブラウザベースQA（視覚的テスト）
 対外向けWeb成果物のレビュー時、ブラウザベースの視覚的テストを活用できる。
-gstackの `/qa-only` コマンドでスクリーンショット付きテストレポートを取得し、
-レビュー結果に含める。詳細は `docs/browser-integration.md` を参照。
+`company/secretary/config.md` の `browser_backend` 設定に応じて以下のバックエンドを使用する：
+- `claude-in-chrome`（推奨）: MCPツールで直接ブラウザ操作。外部依存なし
+- `gstack`: Persistent Chromium Daemon。要インストール
+- `none`: ブラウザテスト無効
+設定がない場合は利用可能なバックエンドを自動判定する。詳細は `docs/browser-integration.md` を参照。
 
 ### レビューの発動タイミング
 秘書が命令を発行する際、以下のケースでは成果物完成後に品質管理部へも命令を出す：
