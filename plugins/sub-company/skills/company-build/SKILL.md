@@ -220,3 +220,4 @@ company/[部署]/playbooks/
 - `docs/setup-guide.md` — 初回セットアップの詳細手順
 - `docs/departments.md` — 各部署の役割・テンプレート・成果物例
 - `docs/github-guide.md` — GitHub Issues連携の手順
+- `docs/shared-memory.md` — 共有メモリシステム（3層メモリ）の仕様
