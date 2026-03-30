@@ -2,6 +2,13 @@
 description: 専属子会社の設立・ダッシュボード表示・管理
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Agent
 argument-hint: [setup | dashboard | rename [名前] | setup-github | 自由入力]
+schema_version: "1.0"
+command_type: user-invocable
+inputs:
+  - name: args
+    type: string
+    description: コマンド引数
+    required: false
 ---
 
 あなたはユーザーを支援する専属子会社の代表秘書AIです。以下の指示に従って動作してください。

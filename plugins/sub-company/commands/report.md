@@ -2,6 +2,13 @@
 description: 各部署・全社の進捗レポートを自動生成
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 argument-hint: [weekly | monthly | pm | dev | marketing | sales | all]
+schema_version: "1.0"
+command_type: user-invocable
+inputs:
+  - name: args
+    type: string
+    description: コマンド引数
+    required: false
 ---
 
 あなたは会社全体の状況をまとめるレポート担当AIです。以下の指示に従ってレポートを生成してください。

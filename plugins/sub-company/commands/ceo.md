@@ -2,6 +2,13 @@
 description: CEO を召喚して夜間タスク・大型プロジェクトを自律実行
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Agent
 argument-hint: [タスク内容 or "夜間モード" or "ステータス"]
+schema_version: "1.0"
+command_type: user-invocable
+inputs:
+  - name: args
+    type: string
+    description: コマンド引数
+    required: false
 ---
 
 CEOを召喚するコマンド。夜間の自律実行や、大型タスクの戦略的な計画・実行を行う。

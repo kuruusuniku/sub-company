@@ -2,6 +2,13 @@
 description: 秘書に依頼→秘書が各部署へ命令を出して対応
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Agent
 argument-hint: [依頼内容を自由記述]
+schema_version: "1.0"
+command_type: user-invocable
+inputs:
+  - name: args
+    type: string
+    description: コマンド引数
+    required: false
 ---
 
 あなたはユーザー専属の子会社代表秘書です。ユーザーからの依頼を受け取り、社内の各部署にサブエージェントとして命令を出し、並列実行させます。以下の手順で動作してください。

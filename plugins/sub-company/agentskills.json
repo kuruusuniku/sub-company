@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "skill_pack": {
+    "name": "sub-company",
+    "version": "0.1.0",
+    "description": "専属子会社プラグイン - 秘書が各部署へ命令を出してビジネスタスクを実行",
+    "author": "kuruusuniku",
+    "license": "MIT",
+    "repository": "https://github.com/kuruusuniku/sub-company",
+    "skills": [
+      {
+        "name": "company-build",
+        "path": "skills/company-build/SKILL.md",
+        "type": "orchestrator"
+      }
+    ],
+    "commands": [
+      {
+        "name": "ask",
+        "path": "commands/ask.md",
+        "description": "秘書に依頼",
+        "type": "user-invocable"
+      },
+      {
+        "name": "company",
+        "path": "commands/company.md",
+        "description": "子会社設立・管理",
+        "type": "user-invocable"
+      },
+      {
+        "name": "ceo",
+        "path": "commands/ceo.md",
+        "description": "CEO召喚",
+        "type": "user-invocable"
+      },
+      {
+        "name": "report",
+        "path": "commands/report.md",
+        "description": "進捗レポート生成",
+        "type": "user-invocable"
+      }
+    ],
+    "tags": ["orchestration", "multi-agent", "japanese"],
+    "capabilities": ["task-delegation", "multi-department-coordination", "knowledge-accumulation"]
+  }
+}

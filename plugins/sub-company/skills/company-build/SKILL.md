@@ -5,6 +5,40 @@ description: >
   秘書が各部署（PM・開発・マーケ・営業・経営企画・品質管理）へ命令を出す体制。
   マーケ戦略・提案書・技術調査・売上分析・台本・告知文・デザインリサーチなど業務全般に対応。
 version: 0.1.0
+schema_version: "1.0"
+author: kuruusuniku
+license: MIT
+tags:
+  - orchestration
+  - multi-agent
+  - project-management
+  - japanese
+capabilities:
+  - task-delegation
+  - multi-department-coordination
+  - knowledge-accumulation
+  - cost-control
+inputs:
+  - name: request
+    type: string
+    description: ユーザーからの依頼内容
+    required: true
+outputs:
+  - name: deliverable
+    type: file
+    description: 各部署が作成した成果物
+  - name: report
+    type: markdown
+    description: 秘書による完了報告
+dependencies:
+  tools:
+    - Read
+    - Write
+    - Edit
+    - Glob
+    - Grep
+    - Bash
+    - Agent
 ---
 
 # cc-company スキル
