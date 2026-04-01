@@ -2,7 +2,22 @@
 
 ## 概要
 サブカンパニーの知識管理を3層構造で体系化する。
-CrewAIの共有メモリシステムを参考にしつつ、Markdownベースで実現する。
+CrewAIの共有メモリシステムを参考にしつつ、バックエンド切替可能な設計で実現する。
+
+## バックエンド設定
+
+`company/secretary/config.md` に以下を追加して選択する：
+
+```markdown
+- memory_backend: markdown  # markdown / engram
+```
+
+| 設定値 | バックエンド | 特徴 |
+|--------|------------|------|
+| `markdown` | Markdownファイル | **デフォルト**。外部依存なし。Glob+Readで検索 |
+| `engram` | engram MCPサーバー | ハイブリッド検索（FTS5+ベクトル）。大規模データに強い |
+
+**設定がない場合は `markdown` として動作する。**
 
 ## 3層メモリ構造
 
@@ -100,3 +115,64 @@ CrewAIの共有メモリシステムを参考にしつつ、Markdownベースで
 ### エンティティの更新
 - 依頼実行中にエンティティの情報が古いと判断した場合、タスク完了後に更新
 - 「この情報は最新ですか？」とユーザーに確認してから更新
+
+---
+
+## engram バックエンド
+
+### 概要
+engram（memory-mcp-server）は永続的AIメモリのMCPサーバー。
+ハイブリッド検索（FTS5全文検索 + ベクトル類似度）と A-MEM式 Zettelkasten構造化を提供する。
+
+### 前提条件
+- engram MCPサーバーが設定済みであること
+- `mcp__engram__*` ツールが利用可能であること
+
+### 3層メモリとengram MCPツールの対応
+
+| メモリ層 | markdownバックエンド | engramバックエンド |
+|---------|---------------------|-------------------|
+| **短期記憶** | `company/memory/sessions/*.md` に Read/Write | `memory_save` で role=system, session_id=命令ID で保存 |
+| **長期記憶** | `company/[部署]/playbooks/*.md` に Glob+Read | `memory_search` で project=部署名, tags=playbook で検索 |
+| **エンティティ** | `company/memory/entities/*.md` に Read/Write | `memory_save` で tags=[entity,種類], `memory_search` で検索 |
+
+### engram利用時の操作手順
+
+#### 依頼受付時（ステップ1.5）
+```
+1. memory_search(query=依頼内容の要約, tags=["entity"], limit=5)
+   → 関連エンティティを取得
+2. memory_search(query=依頼内容の要約, tags=["session"], limit=3, date_from=7日前)
+   → 直近の関連セッションを取得
+3. memory_save(content=依頼内容, role=system, session_id=命令ID, tags=["session"], project=部署名)
+   → 新規セッション記憶を保存
+```
+
+#### 部署実行時（プレイブック参照）
+```
+1. memory_search(query=タスク内容, tags=["playbook"], project=部署名, limit=5)
+   → 関連プレイブックを取得
+2. memory_associate(note_id=関連ノートID)
+   → 連想検索で関連知見を発見（セレンディピティ）
+```
+
+#### 完了後（記憶の更新）
+```
+1. memory_save(content=タスク結果サマリー, role=assistant, session_id=命令ID, tags=["session"])
+   → セッション記憶に結果を追記
+2. memory_save(content=新たな知見, role=system, tags=["playbook"], project=部署名)
+   → プレイブックとして保存（知見がある場合のみ）
+3. memory_save(content=エンティティ更新情報, role=system, tags=["entity", 種類])
+   → エンティティ更新（必要な場合のみ）
+```
+
+### engram の利点
+- **セマンティック検索**: キーワード一致ではなく意味で検索できる
+- **連想検索**: `memory_associate` による偶然の発見（プレイブック間の意外な関連）
+- **スケーラビリティ**: SQLiteバックエンドでファイル数の制限なし（10件統合ルール不要）
+- **自動構造化**: A-MEM式でサマリー・キーワード・タグが自動生成される
+
+### engram 未設定時のフォールバック
+`memory_backend: engram` が設定されているが engram MCPツールが利用不可の場合：
+- 警告を表示し、markdown バックエンドにフォールバックする
+- 「engram MCPサーバーが見つかりません。Markdownモードで動作します」と通知

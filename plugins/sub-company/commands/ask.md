@@ -120,7 +120,10 @@ CEO モードが発動した場合は **ステップ2C** に進む。
 
 ## ステップ1.5：共有メモリの参照
 
-依頼を受け付けた後、以下のメモリを確認する:
+`company/secretary/config.md` の `memory_backend` を確認し、バックエンドに応じた手順でメモリを参照する。
+設定がない場合は `markdown` として動作する。
+
+### markdown バックエンド（デフォルト）
 
 1. **エンティティ記憶**: `company/memory/entities/` 内の関連ファイルを確認
    - `user.md` が存在すればユーザー情報を把握
@@ -130,6 +133,15 @@ CEO モードが発動した場合は **ステップ2C** に進む。
 3. 新規の短期記憶ファイルを作成: `company/memory/sessions/YYYY-MM-DD-NNN.md`
 
 メモリディレクトリが存在しない場合はスキップする（初回利用時は未作成）。
+
+### engram バックエンド
+
+1. **エンティティ検索**: `memory_search(query=依頼内容の要約, tags=["entity"], limit=5)`
+2. **直近セッション検索**: `memory_search(query=依頼内容の要約, tags=["session"], limit=3)`
+3. **セッション記憶保存**: `memory_save(content=依頼内容, role=system, session_id=命令ID, tags=["session"])`
+
+engram MCPツールが利用不可の場合は markdown バックエンドにフォールバックする。
+
 詳細は `skills/company-build/docs/shared-memory.md` を参照。
 
 ## ステップ2：担当部署の判断と命令書の発行
