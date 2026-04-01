@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## [0.10.0] - 2026-04-01
+
+### 追加
+- **agentskills.io 標準対応**: スキル・コマンドのメタデータを agentskills.io 仕様に準拠
+  - SKILL.md / 各コマンドの frontmatter に schema_version, capabilities, inputs, outputs 等を追加
+  - `agentskills.json` スキルパックマニフェストを新規作成
+- **オブザーバビリティ基盤（Phase 1）**: 実行トレーシングログの自動記録
+  - 各Agent実行の開始・完了・所要時間・エラーを `company/logs/YYYY-MM-DD-trace.md` に出力
+  - 日次サマリー（総命令数・成功率・稼働部署）を自動生成
+- **ブラウザ統合**: 品質管理部のQAレビューにブラウザベースの視覚的テストを導入
+  - `browser_backend` 設定で切り替え可能: `claude-in-chrome`（推奨） / `gstack` / `none`
+  - claude-in-chrome: MCPツールで直接ブラウザ操作。外部依存なし
+  - gstack: Persistent Chromium Daemon 経由。要インストール
+  - 未設定時は利用可能なバックエンドを自動判定
+- **共有メモリシステム（3層メモリ）**: CrewAI 型の知識管理を導入
+  - 短期記憶（Session Memory）: 依頼ごとのコンテキスト管理
+  - 長期記憶（Playbook Memory）: 既存プレイブック機能を長期記憶として位置づけ
+  - エンティティ記憶（Entity Memory）: ユーザー・プロジェクト・クライアント等の固有情報
+  - `memory_backend` 設定で切り替え可能: `markdown`（デフォルト） / `engram`
+  - engram: MCP サーバー経由のハイブリッド検索（FTS5 + ベクトル）+ 連想検索 + A-MEM 自動構造化
+  - 未設定時は markdown バックエンドで動作
+- **3ツール間連携パイプライン**: サブカンパニー → 孔明 → タチコマ の E2E 開発自動化
+  - 「開発パイプラインで」等のキーワードでパイプラインモード発動
+  - `.context.md` による統一コンテキストファイルで3ツール間のデータ受け渡し
+  - 各ツールの利用可能性を自動判定し、未インストール時はセットアップを案内
+
+### 変更
+- ask.md にステップ1.5（共有メモリ参照）、ステップ2P（パイプラインモード）、ステップ5.5（実行ログ記録）を追加
+- departments.md の品質管理部セクションにブラウザベースQAの説明を追加
+
+### 修正
+- plugin.json のバージョンを実態に合わせて更新（#14）
+
+---
+
 ## [0.9.0] - 2026-03-27
 
 ### 追加
