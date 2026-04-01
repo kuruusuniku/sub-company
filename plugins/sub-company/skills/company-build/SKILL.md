@@ -4,7 +4,7 @@ description: >
   専属子会社としてユーザーの仕事をMarkdownベースで管理・実行するスキル。
   秘書が各部署（PM・開発・マーケ・営業・経営企画・品質管理）へ命令を出す体制。
   マーケ戦略・提案書・技術調査・売上分析・台本・告知文・デザインリサーチなど業務全般に対応。
-version: 0.1.0
+version: 0.10.0
 schema_version: "1.0"
 author: kuruusuniku
 license: MIT
