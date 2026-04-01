@@ -65,7 +65,18 @@ CEO として依頼内容を分析し、実行計画を立てる：
 
 夜間タスクの実行計画を `company/ceo/plans/night-plan-YYYY-MM-DD.md` に保存する。
 
-次に、以下の方法で夜間実行を設定する：
+まず `company/secretary/config.md` の `environment` を確認する。
+
+#### Coworkモードの場合
+
+方法A・Bは利用不可（Bash非対応）。**方法Cのみ案内する：**
+- 「今すぐCEOに任せる」として即時実行を提案する
+- 「要確認」はGitHub Issueではなく `company/secretary/inbox.md` に記録する
+- 結果確認時の `ls -t` の代わりに Glob ツールを使う
+
+#### 通常モードの場合
+
+以下の方法で夜間実行を設定する：
 
 **方法A：Claude Code の `--resume` を使う方法（推奨）**
 
@@ -146,9 +157,7 @@ CEO が [時刻] に自動で実行を開始します。
 
 `company/ceo/reports/` から最新の夜間レポートを探す：
 
-```bash
-ls -t company/ceo/reports/night-report-*.md | head -1
-```
+Glob ツールで `company/ceo/reports/night-report-*.md` を検索し、最新のファイルを取得する。
 
 ### ステップ2：結果の表示
 

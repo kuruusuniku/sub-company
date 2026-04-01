@@ -221,3 +221,4 @@ company/[部署]/playbooks/
 - `docs/departments.md` — 各部署の役割・テンプレート・成果物例
 - `docs/github-guide.md` — GitHub Issues連携の手順
 - `docs/shared-memory.md` — 共有メモリシステム（3層メモリ）の仕様
+- `docs/cowork-compatibility.md` — Cowork環境の互換性ガイド・機能ナーフ一覧

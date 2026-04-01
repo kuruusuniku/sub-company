@@ -17,11 +17,19 @@ inputs:
 
 引数 `$ARGUMENTS` を確認する:
 - `setup` → 子会社設立モードを起動
+- `setup cowork` → Coworkモードで子会社設立（`environment: cowork` で初期化）
 - `dashboard` → ダッシュボードを表示・更新
 - `rename [新しい名前]` → 秘書の名前を変更する（`company/secretary/config.md` の name を更新）
-- `setup-github` → GitHub Issues連携のセットアップを開始する
+- `setup-github` → GitHub Issues連携のセットアップを開始する（**Coworkモードでは非対応**）
 - 引数なし → `company/dashboard.md` が存在すればダッシュボード表示、なければ設立モード起動
 - その他の自然言語 → ユーザーの意図を解釈して適切に対応
+
+### Coworkモードの判定
+
+子会社設立時およびsetup-github実行時に、Coworkモードかどうかを判定する：
+1. 引数に `cowork` が含まれる → Coworkモードで設立
+2. `company/secretary/config.md` に `environment: cowork` がある → Coworkモード
+3. Coworkモードの場合、`setup-github` は「この環境では対応していません」と案内する
 
 ### `rename` の処理
 1. `company/secretary/config.md` を読み込む
@@ -94,7 +102,7 @@ inputs:
 ```
 
 生成するファイル・フォルダ：
-1. `company/secretary/config.md`（秘書設定・最初に生成）
+1. `company/secretary/config.md`（秘書設定・最初に生成。Coworkモードの場合は `environment: cowork` を設定する。通常モードの場合は `environment: local` を設定する。`execution_mode` はどちらも `parallel` がデフォルト）
 2. `company/dashboard.md`（子会社ダッシュボード）
 3. `company/secretary/inbox.md`（受信トレイ）
 4. `company/secretary/todos.md`（TODO管理）

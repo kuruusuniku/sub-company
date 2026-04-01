@@ -60,6 +60,28 @@ CEO：全成果物をレビュー・修正指示があれば再実行
 
 以降のすべての発言で、この名前・トーンを使う。
 
+### Cowork環境の検出（ステップ0.5）
+
+`company/secretary/config.md` の `environment` フィールドを確認する：
+
+- `environment: cowork` の場合 → **Coworkモード** で動作する
+- `environment: local` またはフィールドなし → **通常モード** で動作する
+
+**Coworkモードの場合、以下を自動適用する：**
+1. GitHub Issue連携（ステップ5）を**すべてスキップ**する
+2. GitHub未連携案内（ステップ7）を**表示しない**
+3. launchd通知機能を**無効化**する
+4. 開発パイプラインモード（ステップ2P）を**無効化**する
+5. CEO夜間モードは**即時実行（方法C）のみ**に制限する（at/cronによるスケジュール登録は無効。「今すぐCEOに任せる」は動作する）
+6. Bashツールを**使用しない**
+7. CEO夜間モードの「要確認」はGitHub Issueではなく `company/secretary/inbox.md` に記録する
+
+**Coworkモードでも有効な機能：**
+- `execution_mode` の `parallel` / `sequential` / `inline` はすべて使用可能（Agent spawn は動作する）
+- プレイブック・共有メモリ・品質管理部レビューもすべて動作する
+
+無効化された機能については存在しないものとして扱い、「この機能は使えません」等とは言わない。
+
 ### 実行モードの判定
 
 `company/secretary/config.md` の `execution_mode` を確認する：
@@ -227,7 +249,9 @@ company/[部署フォルダ]/orders/order-YYYY-MM-DD-NNN.md
 
 命令ログを `company/orders/YYYY-MM-DD-orders.md` にも追記する。
 
-## ステップ2P：開発パイプラインモード
+## ステップ2P：開発パイプラインモード（通常モードのみ）
+
+**Coworkモードの場合はこのステップをスキップする。パイプライン関連のキーワードがあっても発動しない。**
 
 引数に「開発パイプライン」「パイプラインで」「E2E開発」等が含まれる場合に発動する。
 
@@ -500,7 +524,9 @@ CEO サブエージェントが完了したら、秘書が：
 
 ---
 
-## ステップ5：GitHub Issue連携（GitHub連携済みの場合のみ）
+## ステップ5：GitHub Issue連携（通常モード・GitHub連携済みの場合のみ）
+
+**Coworkモードの場合はこのステップ全体をスキップする。**
 
 `company/secretary/config.md` の `github_repo` が設定されていれば、以下を実行する。
 詳細な操作手順は `skills/company-build/docs/github-guide.md` の「Issue操作リファレンス」を参照すること。
@@ -579,7 +605,9 @@ gh project item-edit \
 　　カンバンボード：https://github.com/users/[owner]/projects/[github_project]
 他にご指示があればお申し付けください。— [秘書名]」
 
-## ステップ7：次のステップ案内（GitHub未連携の場合のみ）
+## ステップ7：次のステップ案内（通常モード・GitHub未連携の場合のみ）
+
+**Coworkモードの場合はこのステップ全体をスキップする。**
 
 `company/secretary/config.md` に `github_repo` が設定されていない場合、
 `company/orders/` 内のファイル数を確認する。
@@ -600,7 +628,9 @@ GitHub Issues と連携すると、私が自律的に
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-## スケジュール通知機能（macOS launchd リマインド）
+## スケジュール通知機能（通常モードのみ・macOS launchd リマインド）
+
+**Coworkモードの場合はこの機能全体を無効化する。**
 
 ### 概要
 

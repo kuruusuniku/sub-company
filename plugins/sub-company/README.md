@@ -171,6 +171,30 @@ company/
 
 ---
 
+## CLI版 vs Cowork版
+
+sub-company は **Claude Code CLI（ターミナル）** と **Claude デスクトップアプリ（Cowork）** の両方で動作します。
+Cowork版ではターミナル操作が不要な機能のみ有効になり、初心者でもつまずかない設計になっています。
+
+| 機能 | CLI版 | Cowork版 |
+|------|:-----:|:--------:|
+| 秘書への依頼・部署実行 | ○ | ○ |
+| 並列実行（parallel/sequential） | ○ | ○ |
+| CEO召喚（即時実行） | ○ | ○ |
+| プレイブック（ナレッジ学習） | ○ | ○ |
+| 共有メモリ（3層メモリ） | ○ | ○ |
+| 品質管理部レビュー | ○ | ○ |
+| TODO管理・レポート生成 | ○ | ○ |
+| GitHub Issues連携 | ○ | — |
+| リマインド通知（launchd） | ○ | — |
+| CEO夜間スケジュール（at/cron） | ○ | — |
+| 開発パイプライン（E2E） | ○ | — |
+
+> Cowork版の詳細は [README-COWORK.md](./README-COWORK.md) を参照してください。
+> セットアップは `/company setup cowork` で開始できます。
+
+---
+
 ## GitHub Issues 連携（オプション）
 
 `/company setup-github` で GitHub Issues と連携すると、秘書がタスクを自動管理します：

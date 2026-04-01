@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## [1.1.0] - 2026-04-01
+
+### 追加
+- **Cowork互換性モード**: Cowork環境で安定動作するナーフ版を導入
+  - `environment: cowork` 設定で自動切り替え
+  - `/company setup cowork` でCoworkモード初期化に対応
+  - `docs/cowork-compatibility.md` に互換性ガイドを追加
+
+### Coworkモードで無効化される機能
+- GitHub Issues連携（setup-github含む）
+- launchd通知（リマインド）
+- 開発パイプラインモード（E2E）
+- CEO夜間モードのスケジュール登録（at/cron）（即時実行は有効）
+- Bashツール実行全般
+
+### Coworkモードで有効な機能
+- `/ask` による秘書への依頼（parallel/sequential/inline全モード対応）
+- Agent spawn（サブエージェント並列実行）
+- 子会社設立・ダッシュボード
+- プレイブック（ナレッジ）参照・更新
+- 共有メモリ（markdownバックエンド）
+- 品質管理部レビュー
+- TODO管理・レポート生成
+
 ## [1.0.0] - 2026-04-01
 
 ### 追加
