@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "skill_pack": {
     "name": "sub-company",
-    "version": "0.10.0",
+    "version": "1.0.0",
     "description": "専属子会社プラグイン - 秘書が各部署へ命令を出してビジネスタスクを実行",
     "author": "kuruusuniku",
     "license": "MIT",
